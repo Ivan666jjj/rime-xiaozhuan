@@ -35,9 +35,13 @@ bash rime-install Ivan666jjj/rime-xiaozhuan
 
 ```yaml
 patch:
-  schema_list:
-    - schema: shuowen      # ← 加这一行（别删你原有的其他方案）
+  schema_list/+:           # ← 注意这个 /+，是「追加」
+    - schema: shuowen
 ```
+
+> ⚠️ **`/+` 不能省**。Rime 的 patch 默认是「**整体替换**」——
+> 写成 `schema_list:` 的话，你原有的其他方案会**全部从列表里消失**。
+> `/+` 的语义才是「追加，保留原有」。
 
 > 仓库里那份 `default.custom.yaml.example` 是**给你参考的样例**，
 > **不要直接复制覆盖** —— 那样会把你已有的方案列表清掉。

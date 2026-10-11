@@ -1,19 +1,14 @@
-# 把「小篆」方案挂进 Rime 的方案列表，并让候选窗使用篆书字体。
-# 放到 Rime 的用户目录下（见 README）。
+# 桌面端（小狼毫 / 鼠须管 / 中州韵）把「小篆」挂进方案列表的**样例**。
+#
+# ⚠️ 这是样例，不是让你直接复制覆盖的 ——
+#    你机器上如果已经有 default.custom.yaml（比如装了雾凇拼音），
+#    直接覆盖会把你原有的方案列表清空。
+#
+# 正确做法：打开你自己的 default.custom.yaml，
+#          把下面 schema_list/+ 那两行**合并进去**。
 ---
 patch:
-  schema_list:
+  # 「/+」= 追加并保留原有项。
+  # 如果写成 schema_list:（不带 /+），则是整体替换 —— 只留小篆，别的全没了。
+  schema_list/+:
     - schema: shuowen
-
-  # ★ 关键：候选窗字体设成 Shuowen Seal。
-  #   没装这个字体时会自动退回系统字体，显示普通汉字，不会变豆腐块。
-  style:
-    font_face: "Shuowen Seal"
-    font_point: 26
-    label_font_point: 13
-    inline_preedit: true
-    horizontal: true
-    comment_font_point: 13
-
-  menu:
-    page_size: 9

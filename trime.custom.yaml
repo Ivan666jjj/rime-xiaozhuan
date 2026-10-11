@@ -5,7 +5,10 @@
 # 且这里的文件名必须跟 rime/fonts/ 里的**完全一致**（含大小写和扩展名）。
 ---
 patch:
-  schema_list:
+  # ⚠️ 用 schema_list/+ 而不是 schema_list ——
+  #    「/+」是「追加、保留原有项」，不加则是「整体替换」，
+  #    那会把你手机上已有的其他方案从列表里清掉。
+  schema_list/+:
     - schema: shuowen
 
   # 安卓认的是 candidate_font；桌面端的 font_face 在安卓上不生效。
