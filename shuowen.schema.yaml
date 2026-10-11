@@ -1,0 +1,87 @@
+# Rime 输入方案 —— 小篆
+#
+# 候选窗用篆书字体渲染，上屏的是普通汉字：
+#   · 你装了 ShuowenSeal.ttf  -> 候选窗里看到篆形
+#   · 别人没装                -> 看到楷体汉字，照样读得懂
+#
+# 由 tools/export_rime.py 生成。
+---
+schema:
+  schema_id: shuowen
+  name: 小篆
+  version: "1.0"
+  author:
+    - 严毓焕
+  description: |
+    《说文》小篆输入方案（拼音输入，候选窗显示篆形）。
+    字形来自开元小篆（SIL OFL 1.1）、全字库说文解字、汉典补缺。
+    候选窗需要安装 ShuowenSeal.ttf 才能看到篆形，否则显示普通汉字。
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 篆书, 西文 ]
+  - name: full_shape
+    reset: 0
+    states: [ 半角, 全角 ]
+
+# 候选窗字体 —— 两套键名都写上，各平台取自己认得的那一个：
+#   · 桌面端（Windows 小狼毫 / macOS 鼠须管 / Linux）认 font_face
+#   · 安卓同文输入法（Trime）认 candidate_font，且文件名要跟 rime/fonts/ 里的**完全一致**
+# 认不出的键会被忽略，所以放一起不冲突。都没装字体时自动退回系统字体，
+# 候选窗显示普通汉字 —— 退化成普通拼音输入法，不会变豆腐块。
+style:
+  font_face: "Shuowen Seal"
+  font_point: 26
+  label_font_point: 13
+  candidate_font: ShuowenSeal.ttf
+  candidate_text_size: 28
+  comment_font: ShuowenSeal.ttf
+  comment_text_size: 13
+  horizontal: true
+  inline_preedit: true
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+  filters:
+    - simplifier
+    - uniquifier
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcba
+  delimiter: " '"
+  initials: zyxwvutsrqponmlkjihgfedcba
+  auto_select: true               # 唯一候选时直接上屏
+  max_code_length: 48
+
+translator:
+  dictionary: shuowen
+  enable_sentence: false          # 单字方案，不做整句联想
+  enable_completion: true         # 支持只打一半的拼音
+  enable_user_dict: false         # 不要用户词频，保持篆书字形一致
+  spelling_hints: 8               # 候选旁标注拼音
+  comment_format:
+    - xform/^~// 
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default

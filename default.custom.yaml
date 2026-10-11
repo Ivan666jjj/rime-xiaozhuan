@@ -1,0 +1,19 @@
+# 把「小篆」方案挂进 Rime 的方案列表，并让候选窗使用篆书字体。
+# 放到 Rime 的用户目录下（见 README）。
+---
+patch:
+  schema_list:
+    - schema: shuowen
+
+  # ★ 关键：候选窗字体设成 Shuowen Seal。
+  #   没装这个字体时会自动退回系统字体，显示普通汉字，不会变豆腐块。
+  style:
+    font_face: "Shuowen Seal"
+    font_point: 26
+    label_font_point: 13
+    inline_preedit: true
+    horizontal: true
+    comment_font_point: 13
+
+  menu:
+    page_size: 9

@@ -1,0 +1,16 @@
+# 安卓「同文输入法」(Trime) 专用补丁。
+#
+# 放法：跟 shuowen.*.yaml 一起放进 rime/ 目录，然后「配置管理 → 重新部署」。
+# 字体要先复制到 rime/fonts/ 下面（安卓不允许随便装系统字体），
+# 且这里的文件名必须跟 rime/fonts/ 里的**完全一致**（含大小写和扩展名）。
+---
+patch:
+  schema_list:
+    - schema: shuowen
+
+  # 安卓认的是 candidate_font；桌面端的 font_face 在安卓上不生效。
+  "style/candidate_font": ShuowenSeal.ttf
+  "style/comment_font": ShuowenSeal.ttf
+  "style/candidate_text_size": 28
+  "style/comment_text_size": 13
+  "style/candidate_view_height": 38
