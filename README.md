@@ -56,7 +56,7 @@ patch:
 
 ```
 https://github.com/Ivan666jjj/xiaozhuan-ime/releases/latest
-    → xiaozhuan-ime-Rime-v1.0.1.zip      ← 里面就有 ShuowenSeal.ttf
+    → xiaozhuan-ime-Rime-v1.0.2.zip      ← 里面就有 ShuowenSeal.ttf
 ```
 
 > 🌏 **打不开 github.com？** 网址前面加 `ghfast.top/`：
