@@ -1,0 +1,17 @@
+# encoding: utf-8
+---
+# 小篆输入方案 · 东风破（plum）配方
+#
+#   bash rime-install Ivan666jjj/rime-xiaozhuan
+#
+# 只装方案文件，**不动**你的 default.custom.yaml ——
+# 所以不会覆盖你已有的方案列表，装完自己启用一次即可（见 README）。
+recipe:
+  Rx: all
+  description: >-
+    小篆输入方案：拼音输入，候选窗以篆形显示。
+    字体（ShuowenSeal.ttf）需另行安装，见 README。
+install_files: >-
+  shuowen.schema.yaml
+  shuowen.dict.yaml
+  trime.custom.yaml

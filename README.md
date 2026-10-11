@@ -18,6 +18,34 @@
 
 所以打出来的字**能复制、能搜索、能发给别人**，不会因为换台电脑就变豆腐块。
 
+## 一行安装（推荐，需先装好 Rime）
+
+```bash
+bash rime-install Ivan666jjj/rime-xiaozhuan
+```
+
+> 没装过 plum（东风破）的话，先跑这条：
+> `curl -fsSL https://raw.githubusercontent.com/rime/plum/master/rime-install | bash`
+> （Windows 用 `rime-install.bat`，见 [东风破文档](https://github.com/rime/plum)）
+
+**⚠️ 注意**：plum 只负责**把方案文件放进去**，**不会替你启用方案**（这是它的设计）。
+装完还要做一步 —— **重新部署一次**，然后在方案选单里选「小篆」。
+
+**想让它出现在默认方案列表里？** 在你自己的 `default.custom.yaml` 里加：
+
+```yaml
+patch:
+  schema_list:
+    - schema: shuowen      # ← 加这一行（别删你原有的其他方案）
+```
+
+> 仓库里那份 `default.custom.yaml.example` 是**给你参考的样例**，
+> **不要直接复制覆盖** —— 那样会把你已有的方案列表清掉。
+>
+> 不想用命令行的话，下面「手工安装」的步骤一样有效。
+
+---
+
 ## 先拿字体
 
 **本仓库不含字体**（25.8 MB，放仓库太占地方）。到主仓库的 Release 页下载：
@@ -38,8 +66,9 @@ https://github.com/Ivan666jjj/xiaozhuan-ime/releases/latest
 |---|---|
 | `shuowen.schema.yaml` | 输入方案（含候选窗字体设置） |
 | `shuowen.dict.yaml` | 词典：408 个拼音音节 / 8,631 个篆字 |
-| `default.custom.yaml` | 桌面端：把方案挂进列表 |
 | `trime.custom.yaml` | 安卓端：指定候选窗字体 |
+| `recipe.yaml` | 东风破（plum）配方，供 `rime-install` 用 |
+| `default.custom.yaml.example` | **参考样例**，看它怎么把方案挂进列表 |
 
 ---
 
@@ -51,7 +80,9 @@ https://github.com/Ivan666jjj/xiaozhuan-ime/releases/latest
 （不装也能用，只是候选窗显示楷体。）
 
 **③ 放配置** —— 右键任务栏的小狼毫图标 → **用户文件夹**（会打开 `%APPDATA%\Rime`），
-把 `shuowen.schema.yaml`、`shuowen.dict.yaml`、`default.custom.yaml` 三个文件复制进去。
+把 `shuowen.schema.yaml`、`shuowen.dict.yaml` 两个文件复制进去。
+（想让「小篆」出现在方案选单里，参考 `default.custom.yaml.example`，
+在**你自己的** `default.custom.yaml` 里加一行 `- schema: shuowen`。）
 
 **④ 重新部署** —— 右键图标 → **重新部署**（等它转完，词典 8,631 条要跑几秒）。
 
