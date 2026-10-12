@@ -171,11 +171,18 @@ https://github.com/Ivan666jjj/xiaozhuan-ime/releases/latest
 
 ## 字形来源与授权
 
-字形来自两处（**不含汉典字形**，那是仅个人使用的授权）：
+字形轮廓不是本方案绘制的，来自两处（**不含汉典字形**，那是仅个人使用的授权）：
 
 | 来源 | 授权 | 占比 |
 |---|---|---|
 | [开元小篆](https://github.com/frankslin/kaiyuan-small-seal-font) | SIL OFL 1.1 | ~87% |
-| 台湾全字库说文解字 | 政府资料开放授权条款第 1 版 | ~13% |
+| 台湾全字库说文解字 | 政府资料开放授权条款第 1 版（OGDL-Taiwan-1.0） | ~13% |
 
-方案文件本身是 MIT。详见主仓库的 `LICENSE-NOTES.md`。
+全字库属 OGDL，**显名是强制义务**（明定「未尽显名标示义务者，视为自始未取得授权」）。
+分享本方案时（候选窗截图、介绍页、群里说明都算）请带上这句：
+
+> 數位發展部，CNS11643中文標準交換碼全字庫網站，https://www.cns11643.gov.tw
+
+方案文件本身是 MIT。详见主仓库的
+[`LICENSE-NOTES.md`](https://github.com/Ivan666jjj/xiaozhuan-ime/blob/main/LICENSE-NOTES.md)
+与 [`字形来源与授权.md`](https://github.com/Ivan666jjj/xiaozhuan-ime/blob/main/packaging/字形来源与授权.md)。
